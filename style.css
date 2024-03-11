@@ -5,9 +5,33 @@
 }
 body {
     font-family: Arial;
+    height: fit-content;
     background-color: rgb(236, 236, 236);
     background-image: url(https://images.unsplash.com/photo-1669023414162-8b0573b9c6b2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-size: cover;
+
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* เลือกส่วนของพื้นหลังที่ต้องการให้เบลอ */
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(3px);
+    pointer-events: none; /* ทำให้เบลอไม่มีการแอบกระทำได้ */
+}
+
+.content{
+    position: relative;
+    z-index: 1;
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .container nav {
     /* background-color: rgb(5, 207, 207); */
@@ -54,4 +78,35 @@ nav a::after{
 nav a:hover::after{
     width: 50%;
     opacity: 1;
+}
+.fa-brands.fa-facebook.fa-2x {
+    color: #3b5998;
+}
+
+.fa-brands.fa-instagram.fa-2x {
+    background: linear-gradient(to top right, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Hides original text color */
+}
+.fa-brands.fa-github.fa-2x {
+    color: black;
+}
+.fa-regular.fa-envelope.fa-2x{
+    color: 	#c71610;
+}
+.icons{
+    padding: 50px ;
+}
+.icons a{
+    display: inline-block;
+    padding: 7px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.116);
+    transition: 0.4s;
+}
+.icons a:hover{
+    background-color: #ffffff;
+
 }

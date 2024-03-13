@@ -19,12 +19,15 @@ body::before {
     width: 100%;
     height: 100%; /* เลือกส่วนของพื้นหลังที่ต้องการให้เบลอ */
     background-color: rgba(0, 0, 0, 0.404);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
     pointer-events: none; /* ทำให้เบลอไม่มีการแอบกระทำได้ */
 }
 
-.content{
-    position: relative;
+.content {
+    color: rgb(184, 190, 197);
+    position: absolute;
+    top: 15rem;
+    left: 20rem;
     z-index: 1;
     backdrop-filter: none;
     display: flex;
@@ -32,6 +35,13 @@ body::before {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+.content1{
+    transform: translateX(-150px);
+    font-size: 40px;
+}
+.content2{
+    margin-top: 3rem;
 }
 .container nav {
     /* background-color: rgb(5, 207, 207); */

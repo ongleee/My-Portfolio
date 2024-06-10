@@ -8,4 +8,4 @@ setTimeout(() => {
     setTimeout(() => {
       document.querySelector('.loading-page').classList.add('hide-loading-page');
     }, 500);
-}, 600); // Simulated delay of 2 seconds
+}, 700); // Simulated delay of 2 seconds

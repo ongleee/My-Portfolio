@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Loading page styles */
@@ -21,18 +21,22 @@ body {
 }
 
 .loading-text {
-    font-size: 50px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 600;
+    min-width: 260px;
     opacity: 1;
+
     transition: opacity 0.5s ease-in-out 0.5s;
 }
-.loading-text .text1{
+/* .loading-text .text1{
     font-weight: bold;
     color: #f2aa00;
 }
 .loading-text .text2{
     color: #ffffff;
     font-weight: 1000;
-}
+} */
 
 /* Hide loading page after delay */
 .hide-loading-page {
@@ -49,4 +53,54 @@ body {
 .show-content {
     opacity: 1;
     transition: opacity 0.5s ease-in-out 1s;
+}
+.loading-text span{
+    position: relative;
+}
+.loading-text span::before{
+    content: "Portfolio";
+    color: #edb957;
+    animation: words 20s infinite;
+}
+.loading-text span::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: #000000;
+    border-left: 2px solid #edb957;
+    right: -8px;
+    animation: cursor .8s infinite, typing 8s steps(14) infinite;
+}
+@keyframes cursor {
+    to{
+        border-left: 2px solid #ff7f5000;
+    }
+}
+
+@keyframes words {
+    0%,20%{
+        content: "Portfolio";
+    }
+    21%,40%{
+        content: "Kobkaew";
+    }
+    41%,60%{
+        content: "Ok";
+    }
+    61%,80%{
+        content: "No No";
+    }
+    81%,100%{
+        content: "Yes yes";
+    }
+}
+
+@keyframes typing{
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
 }

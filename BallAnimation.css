@@ -36,7 +36,7 @@
     background:yellow;
   }
   .ball {
-    background: red;
+    background: rgb(208, 255, 0);
     border-radius: 50%;
     height: 50px;
     position: absolute;

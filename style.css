@@ -3,14 +3,15 @@
     border: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: Arial;
-    height: fit-content;
-    background-color: rgb(236, 236, 236);
     background-image: url(https://images.unsplash.com/photo-1669023414162-8b0573b9c6b2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    background-size: cover;
-    height: 100vh;
-
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
 }
 body::before {
     content: '';
@@ -22,47 +23,48 @@ body::before {
     background-color: rgba(0, 0, 0, 0.404);
     backdrop-filter: blur(5px);
     pointer-events: none;
+    z-index: 0;
 }
 
-.content {
-    color: rgb(184, 190, 197);
-    position: absolute;
-    top: 15rem;
-    left: 20rem;
+.container {
+    position: relative;
+    width: 100%;
     z-index: 1;
-    backdrop-filter: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
-.content1{
-    transform: translateX(-150px);
-    font-size: 40px;
-}
-.content2{
-    margin-top: 3rem;
-}
-.container nav {
-    /* background-color: rgb(5, 207, 207); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
+/* Navigation Styles */
 nav {
     width: 100%;
     height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-nav img{
-    position: relative;
-    z-index: 1;
+
+nav img {
     width: 150px;
-    left: -700px;
-    /* margin-right: 83rem; */
+    height: auto;
 }
-.service{
+
+.services {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.service {
     color: rgb(184, 190, 197);
     font-weight: 800;
     font-family: Arial;
@@ -71,43 +73,57 @@ nav img{
     padding: 0 20px;
     position: relative;
 }
-.service::after{
+
+.service::after {
     content: '';
     position: absolute;
     width: 10%;
     opacity: 0;
     height: 5px;
-    background-image: linear-gradient(to right , #ffeec6 , #edb957 , #f2aa00);
+    background-image: linear-gradient(to right, #ffeec6, #edb957, #f2aa00);
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 25px;
     transition: .4s;
 }
-.service:hover::after{
+
+.service:hover::after {
     width: 50%;
     opacity: 1;
 }
-.fa-brands.fa-facebook.fa-2x {
-    color: #3b5998;
+
+/* Content Styles */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.fa-brands.fa-instagram.fa-2x {
-    background: linear-gradient(to top right, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-    -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
-    background-clip: text;
-    -webkit-text-fill-color: transparent; /* Hides original text color */
+.content1 h1 {
+    color: rgb(184, 190, 197);
+    font-size: 100px;
+    margin-bottom: 2rem;
 }
-.fa-brands.fa-github.fa-2x {
-    color: black;
+
+.content2 {
+    color: rgb(184, 190, 197);
+    margin: 2rem 0;
+    margin-top: -2rem;
 }
-.fa-regular.fa-envelope.fa-2x{
-    color: 	#c71610;
+
+/* Icons Styles */
+.icons {
+    padding: 30px 0;
 }
-.icons{
-    padding: 50px ;
-}
-.icons a{
+
+.icons a {
     display: inline-block;
     padding: 7px;
     border-radius: 20px;
@@ -115,7 +131,127 @@ nav img{
     background-color: rgba(255, 255, 255, 0.116);
     transition: 0.4s;
 }
-.icons a:hover{
-    background-color: #ffffff;
 
+.icons a:hover {
+    background-color: #ffffff;
+}
+
+/* Social Media Icons Colors */
+.fa-brands.fa-facebook.fa-2x {
+    color: #3b5998;
+}
+
+.fa-brands.fa-instagram.fa-2x {
+    background: linear-gradient(to top right, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-brands.fa-github.fa-2x {
+    color: black;
+}
+
+.fa-regular.fa-envelope.fa-2x {
+    color: #c71610;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: rgb(184, 190, 197);
+    transition: .3s;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .content {
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .services {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        transition: .3s;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .services.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .service {
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .content1 h1 {
+        font-size: 70px;
+    }
+
+    .content2 p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav img {
+        width: 120px;
+    }
+
+    .service {
+        font-size: 18px;
+    }
+
+    .content1 h1 {
+        font-size: 50px;
+    }
+
+    .content2 p {
+        font-size: 14px;
+    }
+
+    .icons {
+        padding: 20px 0;
+    }
+
+    .icons a {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .fa-2x {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .content {
+        top: 60%;
+    }
 }

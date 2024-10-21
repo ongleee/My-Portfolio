@@ -18,6 +18,7 @@ body {
     align-items: center;
     opacity: 1;
     transition: opacity 0.7s ease-in-out;
+    z-index: 10;
 }
 
 .loading-text {

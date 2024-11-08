@@ -9,7 +9,7 @@
     /* background-color: rgba(0, 0, 0, 0.7); */
     color: rgb(184, 190, 197);
     position: relative; /* This makes sure it respects margins */
-    top: 47rem; /* Moves it down from the top */
+    top: 15rem; /* Moves it down from the top */
 }
 
 

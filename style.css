@@ -94,6 +94,15 @@ nav img {
 }
 
 /* Content Styles */
+.con-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ใช้ความสูงทั้งหมดของหน้าจอ */
+    position: relative;
+    z-index: 1;
+}
+
 .content {
     display: flex;
     align-items: center;
@@ -233,7 +242,7 @@ nav img {
     }
 
     .content2 p {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .icons {
